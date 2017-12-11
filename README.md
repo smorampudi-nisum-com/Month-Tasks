@@ -11,6 +11,13 @@ We can  create a closure by adding a function inside another function.
 1)Closures have access to the outer function’s variable even after the outer function returns.
     closures are created when you define a function, not when you execute it. Closures also don’t go away after you execute      that function.
    We can access the data in a closure long after a function is defined and after it gets executed as well.
+   
+   
 2)Closures store references to the outer function’s variables.
+
+
 3)Since closures give us references to variables in scopes, the access that they give us means both read and write, not just read.
+
+
+
 4)closures give us access to nested scopes at the time we define functions, when we define multiple functions in the same scope, that scope is shared among all created closures, and of course, because of this, the global scope is always shared among all closures.
