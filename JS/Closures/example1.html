@@ -1,0 +1,28 @@
+!DOCTYPE html>
+<html>
+<body>
+
+<p>A function  displayName() can access variables defined inside the function pam() :</p>
+
+<!-- <button type="button" onclick="pam()">Click Me!</button> -->
+<!-- <p id="demo2"></p> -->
+<p id="demo"></p>
+
+
+<script>
+
+function pam() {
+    var name = "Pam Beesly";
+    function displayName() {
+        // alert(name);
+        // return name;
+        //able to access the variable 'name' of outer function
+        document.getElementById("demo").innerHTML = name;
+    }
+    displayName(); 
+}
+ pam();
+</script>
+
+</body>
+</html>
