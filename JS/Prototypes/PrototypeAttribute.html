@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>
+        Every JavaScript object has a prototype. The prototype is also an object.
+        
+        All JavaScript objects inherit their properties and methods from their prototype.
+        Prototype Attribute of Objects Created with new Object () or Object Literal</p>
+
+
+
+<script>
+function Items(){
+    this.fruit="Mango";
+}
+
+//here  we created property veggie  for items with  prototype which has access to all that created by items()
+ Items.prototype.veggie ="tomato"
+
+var sweetFruit =new Items();
+
+sweetFruit.fruit="Straw Berry"
+    
+
+
+console.log(sweetFruit.fruit);//here fruit look first in Items object and then to new defined sweetfruit prints  gives "Straw Berry "in console
+console.log(sweetFruit.veggie);//here all the access of items will be accesed by sweetFruit so that it gives tomato  
+                                              
+
+
+console.log(sweetFruit.toString());
+// in this all items object inherited all properties inherited by object.prototype
+ 
+
+​
+​
+​
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>A function  displayName() can access variables defined inside the function pam() :</p>
+
+<!-- <button type="button" onclick="pam()">Click Me!</button> -->
+<!-- <p id="demo2"></p> -->
+<p id="demo"></p>
+
+
+<script>
+
+function pam() {
+    var name = "Pam Beesly";
+    function displayName() {
+        // alert(name);
+        // return name;
+        //able to access the variable 'name' of outer function
+        document.getElementById("demo").innerHTML = name;
+    }
+    displayName(); 
+}
+ pam();
+
+/*    Closures are created when you define a function, not when you execute it. Closures also don’t go away after you execute that function.
+You can access the data in a closure long after a function is defined and after it gets executed as well.*/
+ var G = 'G';
+                    
+function functionA() {// Define a function and create a closure
+  var A = 'A'
+  
+ 
+  function functionB() { // Define a function and create a closure
+    var B = 'B'
+    console.log(A, B, G);
+  }
+  
+  functionB();  // prints A, B, G
+    // functionB closure does not get discarded
+  A = 42;
+  functionB();  // prints 42, B, G
+}
+functionA();
+
+
+//*******--------********
+var v = 1;
+var f1 = function () {
+   console.log(v);
+}
+var f2 = function() {
+  var v = 2;
+//   console.log(v); prints 2 
+  f1(); // prints 1 i,e in f1() console.log(v)=1
+  
+};
+// v=60;   //if we declare v=60 , console.log(v) in  fun f1() prints 60  ,otherwise prints 1
+f2();
+
+
+/*Since closures give us references to variables in scopes, the access that they give us means both read and write, not just read.*/
+function outer() {
+  var a = 42;
+//   console.log(a);
+function inner() {
+    a = 43;
+  }
+inner();
+  console.log(a);
+}
+outer();
+
+/* Closures can share scope
+ when we define multiple functions in the same scope, that scope is shared among all created closures */
+function parent() {
+  let a = 10;
+  
+  function double() {
+    a = a+a;
+   console.log(a);
+  };
+  
+  function square() {
+    a = a*a;
+   console.log(a);
+  }
+  
+  return { double, square }
+}
+let { double, square } = parent();
+double(); // prints 20
+square(); // prints 400
+double(); // prints 800
+/*bnbbbnnbnbxnbnb*/
+
+let a = 1;
+const function1 = function() {
+   
+  console.log(a);
+  a = 4;
+ 
+}
+a = 3;
+const function2 = function() {
+   
+  console.log(a);
+ 
+}
+function1();
+function2();
+
+////////////////////////////////
+
+function showName (firstName, lastName) {
+var nameIntro = "Your name is ";
+    // this inner function has access to the outer function's variables, including the parameter​
+function makeFullName () {        
+return nameIntro + firstName + " " + lastName;
+
+}
+
+return makeFullName ();
+}
+
+showName ("Michael", "Jackson"); // Your name is Michael Jackson
+
+/////////////////////////////
+// Closures have access to the outer function’s variable even after the outer function returns:
+
+
+</script>
+
+</body>
+</html>
